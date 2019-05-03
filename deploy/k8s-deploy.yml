@@ -1,0 +1,53 @@
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: redis
+spec:
+  selector:
+    matchLabels:
+      app: redis
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: redis
+    spec:
+      containers:
+      - name: redis
+        image: redis:4.0.8-alpine
+        ports:
+        - containerPort: 6379
+---
+apiVersion: apps/v1
+kind: Deployment 
+metadata: 
+  name: spring-demo 
+spec: 
+  selector: 
+    matchLabels: 
+      app: spring-demo 
+  replicas: 3
+  template:
+    metadata: 
+      labels: 
+        app: spring-demo 
+    spec: 
+      containers: 
+      - name: spring-demo 
+        image: sooabia/spring-demo:1
+        ports: 
+        - containerPort: 8080
+---  
+kind: Service 
+apiVersion: v1 
+metadata: 
+  name: spring-service 
+spec: 
+  selector: 
+    app: spring-demo 
+  ports: 
+  - protocol: TCP 
+    port: 80 
+    targetPort: 8080
+  type: LoadBalancer
