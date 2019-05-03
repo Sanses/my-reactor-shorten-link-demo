@@ -15,10 +15,17 @@ from scratch using:
 - Maven
 
 
-./mvnw package
+# 빌드
+./mvnw clean package
 
-java -jar target/demo-0.0.1-SNAPSHOT.jar
+# Docker 이미지 생성
+docker build -t demo:1 .
 
-docker run -p 6479:6379 redis
+# redis 실행 이름을 redis로 설정
+docker run -d -p 6379:6379 --name redis redis
 
+# demo어플리케이션 실행 --link로 redis명 설정
+docker run -d -p 8080:8080 --link redis demo:1
+
+# Restfull 호출해 보기
 curl -XPOST http://localhost:8080/link -H "Content-Type: application/json" -d '{"link":"http://wiki.thesanse.com"}'
