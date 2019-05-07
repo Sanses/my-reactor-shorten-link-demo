@@ -2,7 +2,7 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: redis
+  name: redis-deployment
 spec:
   selector:
     matchLabels:
@@ -42,7 +42,7 @@ spec:
 kind: Service 
 apiVersion: v1 
 metadata: 
-  name: spring-service 
+  name: reactor-service 
 spec: 
   selector: 
     app: reactor-demo 
@@ -51,3 +51,14 @@ spec:
     port: 80 
     targetPort: 8080
   type: LoadBalancer
+---
+kind: Service
+apiVersion: v1
+metadata:
+  name: redis
+spec:
+  selector:
+    app: redis 
+  ports:
+  - port: 6379 
+    targetPort: 6379 
