@@ -15,26 +15,26 @@ spec:
     spec:
       containers:
       - name: redis
-        image: redis:4.0.8-alpine
+        image: redis
         ports:
         - containerPort: 6379
 ---
 apiVersion: apps/v1
 kind: Deployment 
 metadata: 
-  name: spring-demo 
+  name: reactor-demo 
 spec: 
   selector: 
     matchLabels: 
-      app: spring-demo 
+      app: reactor-demo 
   replicas: 3
   template:
     metadata: 
       labels: 
-        app: spring-demo 
+        app: reactor-demo 
     spec: 
       containers: 
-      - name: spring-demo 
+      - name: reactor-demo 
         image: sooabia/spring-demo:1
         ports: 
         - containerPort: 8080
@@ -45,7 +45,7 @@ metadata:
   name: spring-service 
 spec: 
   selector: 
-    app: spring-demo 
+    app: reactor-demo 
   ports: 
   - protocol: TCP 
     port: 80 
