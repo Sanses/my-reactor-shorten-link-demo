@@ -1,1 +1,64 @@
-
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: redis-deployment
+spec:
+  selector:
+    matchLabels:
+      app: redis
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: redis
+    spec:
+      containers:
+      - name: redis
+        image: redis
+        ports:
+        - containerPort: 6379
+---
+apiVersion: apps/v1
+kind: Deployment 
+metadata: 
+  name: reactor-demo 
+spec: 
+  selector: 
+    matchLabels: 
+      app: reactor-demo 
+  replicas: 3
+  template:
+    metadata: 
+      labels: 
+        app: reactor-demo 
+    spec: 
+      containers: 
+      - name: reactor-demo 
+        image: sooabia/reactor-demo:#{Build.BuildId}#
+        ports: 
+        - containerPort: 8080
+---  
+kind: Service 
+apiVersion: v1 
+metadata: 
+  name: reactor-service 
+spec: 
+  selector: 
+    app: reactor-demo 
+  ports: 
+  - protocol: TCP 
+    port: 80 
+    targetPort: 8080
+  type: LoadBalancer
+---
+kind: Service
+apiVersion: v1
+metadata:
+  name: redis
+spec:
+  selector:
+    app: redis 
+  ports:
+  - port: 6379 
+    targetPort: 6379
