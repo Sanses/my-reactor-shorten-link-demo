@@ -17,7 +17,7 @@ public class LinkService {
     Mono<String> shortenLink(String link, String baseUrl) {
         String randomKey = RandomStringUtils.randomAlphabetic(6);
         return linkRepository.save(new Link(link, randomKey))
-                             .map(result -> baseUrl + result.getKey());
+                             .map(result -> baseUrl +"/"+ result.getKey());
     }
 
     Mono<Link> getOriginalLink(String key) {
