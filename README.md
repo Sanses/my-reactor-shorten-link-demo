@@ -29,3 +29,5 @@ docker run -d -p 8080:8080 --link redis demo:1
 
 # Restfull 호출해 보기
 curl -XPOST http://localhost:8080/link -H "Content-Type: application/json" -d '{"link":"http://wiki.thesanse.com"}'
+
+d
