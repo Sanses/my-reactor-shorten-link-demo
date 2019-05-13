@@ -26,7 +26,7 @@ public class LinkControllerTest {
 
     @Test
     public void shortensLink() {
-        when(linkService.shortenLink("https://spring.io")).thenReturn(Mono.just("http://localhost:8080/aass2211"));
+        when(linkService.shortenLink("https://spring.io","http://localhost")).thenReturn(Mono.just("http://localhost/link/aass2211"));
         webTestClient.post()
                      .uri("/link")
                      .contentType(MediaType.APPLICATION_JSON)
@@ -36,7 +36,7 @@ public class LinkControllerTest {
                      .is2xxSuccessful()
                      .expectBody()
                      .jsonPath("$.shortenedLink")
-                     .value(val -> assertThat(val).isEqualTo("http://localhost:8080/aass2211"));
+                     .value(val -> assertThat(val).isEqualTo("http://localhost/link/aass2211"));
     }
 
     @Test
@@ -44,7 +44,7 @@ public class LinkControllerTest {
         when(linkService.getOriginalLink("aaa21123"))
                 .thenReturn(Mono.just(new Link("http://sprint.io", "aaa21123")));
         webTestClient.get()
-                     .uri("/aaa21123")
+                     .uri("/link/aaa21123")
                      .exchange()
                      .expectStatus()
                      .isPermanentRedirect()

@@ -14,7 +14,7 @@ import static org.mockito.Mockito.when;
 public class LinkServiceTest {
 
     private LinkRepository linkRepository = mock(LinkRepository.class);
-    private LinkService linkService = new LinkService("http://some-domain.com/", linkRepository);
+    private LinkService linkService = new LinkService(linkRepository);
 
     @Before
     public void setup() {
@@ -24,9 +24,9 @@ public class LinkServiceTest {
 
     @Test
     public void shortensLink() {
-        StepVerifier.create(linkService.shortenLink("http://spring.io"))
+        StepVerifier.create(linkService.shortenLink("http://spring.io","http://localhost"))
                     .expectNextMatches(result -> result != null && result.length() > 0
-                                                 && result.startsWith("http://some-domain.com/"))
+                                                 && result.startsWith("http://localhost"))
                     .expectComplete()
                     .verify();
     }
