@@ -19,10 +19,10 @@ from scratch using:
 ./mvnw clean package
 
 # Docker 이미지 생성
-docker build -t <dockerId>/reactor-demo:1.0 .
+docker build -t {dockerId}/reactor-demo:1.0 .
 
 # Docker 이미지 Push
-docker push <dockerId>/reactor-demo:1.0
+docker push {dockerId}/reactor-demo:1.0
 
 # redis 실행 이름을 redis로 설정
 docker run -d -p 6379:6379 --name redis redis
