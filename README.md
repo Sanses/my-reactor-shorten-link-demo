@@ -31,6 +31,4 @@ docker run -d -p 6379:6379 --name redis redis
 docker run -d -p 8080:8080 --link redis sooabia/reactor-demo:1.0
 
 # Restfull 호출해 보기
-curl -XPOST http://localhost:8080/link -H "Content-Type: application/json" -d '{"link":"http://wiki.thesanse.com"}'
-
-d
+curl -XPOST http://localhost/link -H "Content-Type: application/json" -d "{\"link\":\"http://wiki.thesanse.com\"}"
