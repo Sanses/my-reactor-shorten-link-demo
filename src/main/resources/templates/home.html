@@ -9,70 +9,52 @@
   <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
   <style>
+    body {
+      text-align: center;
+      background-color: #f1f1f1;
+    }
+    .centered {
+      display: table;
+      margin-left: auto;
+      margin-right: auto;
+      display: inline-block;
+    }
     .form-inline .form-control {
       width: 500px;
     }
   </style>
   <script>
-    $( "#searchForm" ).submit(function( event ) {
+  $(document).ready( function() {
+      $( "#searchForm" ).submit(function( event ) {
+        event.preventDefault();
+        var url = $(this).attr( "action" );
+        var senddata = $(this).find( "input[name='link']" ).val();
 
-      // Stop form from submitting normally
-      event.preventDefault();
-
-      // Get some values from elements on the page:
-      var $form = $( this ),
-        slink = $form.find( "input[name='link']" ).val(),
-        url = $form.attr( "action" );
-
-      // Send the data using post
-      var posting = $.post( url, { link: slink } );
-
-      // Put the results in a div
-      posting.done(function( data ) {
-            alert(data);
-<!--        var content = $( data ).find( "#content" );-->
-<!--        $( "#result" ).empty().append( content );-->
+        $.ajax({
+            type: 'POST',
+            url: url,
+            data: '{"link": "'+senddata+'"}',
+            success: function(data) {
+              $("#content").html('<a href="'+data.shortenedLink+'" target="_blank">'+data.shortenedLink+'</a>');
+            },
+            contentType: "application/json",
+            dataType: 'json'
+        });
       });
-    });
+   });
   </script>
 </head>
 <body>
-<nav class="navbar navbar-expand-sm bg-dark navbar-dark">
-  <form class="form-inline" action="/link" id="searchForm">
-    <input class="form-control mr-sm-2" name="link" type="text" placeholder="http://www.aaa.com">
-    <button class="btn btn-success" type="submit">Make Link</button>
-  </form>
-</nav>
-<div class="container">
-  <h2>Striped Rows</h2>
-  <p>The .table-striped class adds zebra-stripes to a table:</p>            
-  <table class="table table-striped">
-    <thead>
-      <tr>
-        <th>Firstname</th>
-        <th>Lastname</th>
-        <th>Email</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td>John</td>
-        <td>Doe</td>
-        <td>john@example.com</td>
-      </tr>
-      <tr>
-        <td>Mary</td>
-        <td>Moe</td>
-        <td>mary@example.com</td>
-      </tr>
-      <tr>
-        <td>July</td>
-        <td>Dooley</td>
-        <td>july@example.com</td>
-      </tr>
-    </tbody>
-  </table>
+<br><br><br>
+<div class="centered">
+  <nav class="navbar navbar-expand-sm navbar-dark">
+    <form class="form-inline" action="/link" id="searchForm">
+      <input class="form-control mr-sm-2" name="link" type="text" placeholder="http://www.aaa.com">
+      <button class="btn btn-success" type="submit">Make Link</button>
+    </form>
+  </nav>
+  <div id="content">
+  </div>
 </div>
-
 </body>
 </html>
