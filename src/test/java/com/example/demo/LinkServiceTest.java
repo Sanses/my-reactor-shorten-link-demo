@@ -24,9 +24,8 @@ public class LinkServiceTest {
 
     @Test
     public void shortensLink() {
-        StepVerifier.create(linkService.shortenLink("http://spring.io","http://localhost"))
-                    .expectNextMatches(result -> result != null && result.length() > 0
-                                                 && result.startsWith("http://localhost"))
+        StepVerifier.create(linkService.shortenLink("http://spring.io"))
+                    .expectNextMatches(result -> result != null && result.length() > 0)
                     .expectComplete()
                     .verify();
     }
