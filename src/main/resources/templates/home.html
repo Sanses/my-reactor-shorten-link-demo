@@ -24,6 +24,8 @@
     }
   </style>
   <script>
+
+  var hosturl = window.location.protocol + "//" + window.location.hostname + "/link/";
   $(document).ready( function() {
       $( "#searchForm" ).submit(function( event ) {
         event.preventDefault();
@@ -35,7 +37,7 @@
             url: url,
             data: '{"link": "'+senddata+'"}',
             success: function(data) {
-              $("#content").html('<a href="'+data.shortenedLink+'" target="_blank">'+data.shortenedLink+'</a>');
+              $("#content").html('<a href="'+hosturl+data.shortenedLink+'" target="_blank">'+hosturl+data.shortenedLink+'</a>');
             },
             contentType: "application/json",
             dataType: 'json'
@@ -49,7 +51,7 @@
 <div class="centered">
   <nav class="navbar navbar-expand-sm navbar-dark">
     <form class="form-inline" action="/link" id="searchForm">
-      <input class="form-control mr-sm-2" name="link" type="text" placeholder="http://www.aaa.com">
+      <input class="form-control mr-sm-2" name="link" type="text" placeholder="http://www.google.com">
       <button class="btn btn-success" type="submit">Make Link</button>
     </form>
   </nav>

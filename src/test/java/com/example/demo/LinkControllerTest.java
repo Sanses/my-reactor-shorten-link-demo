@@ -26,7 +26,7 @@ public class LinkControllerTest {
 
     @Test
     public void shortensLink() {
-        when(linkService.shortenLink("https://spring.io","http://localhost")).thenReturn(Mono.just("http://localhost/link/aass2211"));
+        when(linkService.shortenLink("https://spring.io")).thenReturn(Mono.just("http://localhost/link/aass2211"));
         webTestClient.post()
                      .uri("/link")
                      .contentType(MediaType.APPLICATION_JSON)

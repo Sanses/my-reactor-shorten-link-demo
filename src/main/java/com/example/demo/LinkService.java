@@ -14,10 +14,10 @@ public class LinkService {
         this.linkRepository = linkRepository;
     }
 
-    Mono<String> shortenLink(String link, String baseUrl) {
+    Mono<String> shortenLink(String link) {
         String randomKey = RandomStringUtils.randomAlphabetic(6);
         return linkRepository.save(new Link(link, randomKey))
-                             .map(result -> baseUrl +"/"+ result.getKey());
+                             .map(result -> result.getKey());
     }
 
     Mono<Link> getOriginalLink(String key) {
