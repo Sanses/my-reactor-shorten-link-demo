@@ -15,10 +15,10 @@ public class RedisLinkRepository implements LinkRepository {
     }
 
     @Override
-    public Mono<Link> save(Link link) {
+    public Mono<String> save(Link link) {
         return operations.opsForValue()
                          .set(link.getKey(), link.getOriginalLink())
-                         .map(__ -> link);
+                         .map(__ -> link.getKey());
     }
 
     @Override
