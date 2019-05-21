@@ -1,8 +1,10 @@
 # Reactive Link Shortener Sample Application
 
-[Check step by step video on YouTube](https://www.youtube.com/watch?v=J9jQoFiP41A)
+[Check step by step video on YouTube #1](https://www.youtube.com/watch?v=J9jQoFiP41A)
 
-https://youtu.be/fTIttl-Z4mk
+[Check step by step video on YouTube #2](https://youtu.be/fTIttl-Z4mk)
+
+
 
 [![Developing reactive application with Spring WebFlux and Spring Data Redis](https://img.youtube.com/vi/KrxXdnCxiFg/0.jpg)](https://www.youtube.com/watch?v=KrxXdnCxiFg)
 
