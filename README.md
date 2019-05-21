@@ -2,11 +2,12 @@
 
 [Check step by step video on YouTube #1](https://www.youtube.com/watch?v=J9jQoFiP41A)
 
-[Check step by step video on YouTube #2](https://youtu.be/fTIttl-Z4mk)
+[![Developing reactive application with Spring WebFlux and Spring Data Redis #1](https://img.youtube.com/vi/KrxXdnCxiFg/0.jpg)](https://www.youtube.com/watch?v=KrxXdnCxiFg)
 
+[Check step by step video on YouTube #2](https://www.youtube.com/watch?v=fTIttl-Z4mk)
 
+[![Developing reactive application with Spring WebFlux and Spring Data Redis #2](https://img.youtube.com/vi/J9jQoFiP41A/0.jpg)](https://www.youtube.com/watch?v=J9jQoFiP41A)
 
-[![Developing reactive application with Spring WebFlux and Spring Data Redis](https://img.youtube.com/vi/KrxXdnCxiFg/0.jpg)](https://www.youtube.com/watch?v=KrxXdnCxiFg)
 
 This repository contains source code for YouTube video where I go through the process of building complete application
 from scratch using:
