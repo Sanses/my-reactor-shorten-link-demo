@@ -18,16 +18,16 @@ from scratch using:
 
 # Docker Container로 실행
 
-## 빌드
-- ./mvnw clean package
-## Docker 이미지 생성
-- docker build -t reactor-demo:1.0 .
-## redis 실행 이름을 redis로 설정
-- docker run -d -p 6379:6379 --name redis redis
-## demo어플리케이션 실행 --link로 redis명 설정
-- docker run -d -p 80:8080 --link redis reactor-demo:1.0
-## Restfull 호출해 보기
-- curl -XPOST http://localhost/link -H "Content-Type: application/json" -d '{"link":"http://wiki.iisanse.com"}'
+- 빌드
+ - ./mvnw clean package
+- Docker 이미지 생성
+ - docker build -t reactor-demo:1.0 .
+- redis 실행 이름을 redis로 설정
+ - docker run -d -p 6379:6379 --name redis redis
+- demo어플리케이션 실행 --link로 redis명 설정
+ - docker run -d -p 80:8080 --link redis reactor-demo:1.0
+- Restfull 호출해 보기
+ - curl -XPOST http://localhost/link -H "Content-Type: application/json" -d '{"link":"http://wiki.iisanse.com"}'
 
 
 
