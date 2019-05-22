@@ -35,7 +35,7 @@ spec:
     spec: 
       containers: 
       - name: reactor-demo 
-        image: sooabia/reactor-demo:1.0
+        image: sooabia/reactor-demo:3.0
         ports: 
         - containerPort: 8080
 ---  
