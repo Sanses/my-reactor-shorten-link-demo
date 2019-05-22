@@ -29,7 +29,7 @@ from scratch using:
   - docker run -d -p 6379:6379 --name redis redis
 - demo어플리케이션 실행 --link로 redis명 설정
   - docker run -d -p 80:8080 --link redis reactor-demo:1.0
-- Restfull 호출해 보기
+- 호출해 보기
   - curl -XPOST http://localhost/link -H "Content-Type: application/json" -d '{"link":"http://wiki.iisanse.com"}'
 
 
@@ -43,7 +43,7 @@ from scratch using:
   - docker push sooabia/reactor-demo:2.0
 - Docker compose로 멀티컨테이너 실행
   - docker-compose -f deploy/docker-compose.yml up -d
-- Restfull 호출해 보기
+- 호출해 보기
   - curl -XPOST http://localhost/link -H "Content-Type: application/json" -d '{"link":"http://wiki.iisanse.com"}'
 
 
@@ -61,5 +61,5 @@ from scratch using:
 - kubernetes배포 상태 확인하기 
   - kubectl get pod
   - kubectl get svc
-- Restfull 호출해 보기
+- 호출해 보기
   - curl -XPOST http://localhost/link -H "Content-Type: application/json" -d '{"link":"http://wiki.iisanse.com"}'
