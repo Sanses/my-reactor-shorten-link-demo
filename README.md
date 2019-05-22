@@ -25,7 +25,7 @@ from scratch using:
   - ./mvnw clean package -Dmaven.test.skip=true
 - Docker 이미지 생성
   - docker build -t reactor-demo:1.0 .
-- redis 실행 이름을 redis로 설정
+- redis Container실행
   - docker run -d -p 6379:6379 --name redis redis
 - demo어플리케이션 실행 --link로 redis명 설정
   - docker run -d -p 80:8080 --link redis reactor-demo:1.0
@@ -42,7 +42,7 @@ from scratch using:
 - Docker 이미지 PUSH
   - docker push sooabia/reactor-demo:2.0
 - Docker compose로 멀티컨테이너 실행
-  - docker-compose -f deploy/dockercompose.yml up -d
+  - docker-compose -f deploy/docker-compose.yml up -d
 - Restfull 호출해 보기
   - curl -XPOST http://localhost/link -H "Content-Type: application/json" -d '{"link":"http://wiki.iisanse.com"}'
 
