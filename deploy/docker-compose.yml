@@ -2,7 +2,7 @@ version: '3'
 
 services:
   reactor-demo:
-    image: sooabia/reactor-demo:1.0
+    image: sooabia/reactor-demo:2.0
     restart: always
     ports:
      - '80:8080'
