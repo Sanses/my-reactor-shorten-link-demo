@@ -19,7 +19,7 @@ from scratch using:
 # Docker Container로 실행
 
 - 빌드
-  - ./mvnw clean package
+  - ./mvnw clean package -Dmaven.test.skip=true
 - Docker 이미지 생성
   - docker build -t reactor-demo:1.0 .
 - redis 실행 이름을 redis로 설정
@@ -33,7 +33,7 @@ from scratch using:
 
 # Docker-compose로 실행
 - 빌드
-  - ./mvnw clean package
+  - ./mvnw clean package -Dmaven.test.skip=true
 - Docker 이미지 생성
   - docker build -t sooabia/reactor-demo:2.0 .
 - Docker 이미지 PUSH
@@ -48,7 +48,7 @@ from scratch using:
 - 사전조건
   - kubenetes config
 - 빌드
-  - ./mvnw clean package
+  - ./mvnw clean package -Dmaven.test.skip=true
 - Docker 이미지 생성
   - docker build -t sooabia/reactor-demo:3.0 .
 - Docker 이미지 PUSH
