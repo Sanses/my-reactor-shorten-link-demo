@@ -54,7 +54,7 @@ from scratch using:
 - Docker 이미지 PUSH
   - docker push sooabia/reactor-demo:3.0
 - kubernetes에 배포하기
-  - kubectl apply -f deploy/k8s-deploy.yml
+  - kubectl apply -f deploy/k8s-deploy-aks.yml
 - kubernetes배포 상태 확인하기 
   - kubectl get pod
   - kubectl get svc
