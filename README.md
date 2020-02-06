@@ -21,8 +21,6 @@ from scratch using:
 
 # Docker Container로 실행
 
-- 빌드
-  - ./mvnw clean package -Dmaven.test.skip=true
 - Docker 이미지 생성
   - docker build -t reactor-demo:1.0 .
 - redis Container실행
@@ -35,8 +33,6 @@ from scratch using:
 
 
 # Docker-compose로 실행
-- 빌드
-  - ./mvnw clean package -Dmaven.test.skip=true
 - Docker 이미지 생성
   - docker build -t sooabia/reactor-demo:2.0 .
 - Docker 이미지 PUSH
@@ -50,8 +46,6 @@ from scratch using:
 # kubernetes로 실행
 - 사전조건
   - kubenetes config
-- 빌드
-  - ./mvnw clean package -Dmaven.test.skip=true
 - Docker 이미지 생성
   - docker build -t sooabia/reactor-demo:3.0 .
 - Docker 이미지 PUSH
