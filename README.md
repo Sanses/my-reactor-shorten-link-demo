@@ -28,7 +28,7 @@ from scratch using:
 - demo어플리케이션 실행 --link로 redis명 설정
   - docker run -d -p 80:8080 --link redis reactor-demo:1.0
 - 호출해 보기
-  - curl -XPOST http://localhost/link -H "Content-Type: application/json" -d '{"link":"http://wiki.iisanse.com"}'
+  - curl -XPOST http://localhost/link -H "Content-Type: application/json" -d "{\"link\":\"http://wiki.iisanse.com\"}"
 
 
 
@@ -40,7 +40,7 @@ from scratch using:
 - Docker compose로 멀티컨테이너 실행
   - docker-compose -f deploy/docker-compose.yml up -d
 - 호출해 보기
-  - curl -XPOST http://localhost/link -H "Content-Type: application/json" -d '{"link":"http://wiki.iisanse.com"}'
+  - curl -XPOST http://localhost/link -H "Content-Type: application/json" -d "{\"link\":\"http://wiki.iisanse.com\"}"
 
 
 # kubernetes로 실행
@@ -56,4 +56,4 @@ from scratch using:
   - kubectl get pod
   - kubectl get svc
 - 호출해 보기
-  - curl -XPOST http://localhost/link -H "Content-Type: application/json" -d '{"link":"http://wiki.iisanse.com"}'
+  - curl -XPOST http://localhost/link -H "Content-Type: application/json" -d "{\"link\":\"http://wiki.iisanse.com\"}"
